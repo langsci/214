@@ -1376,7 +1376,7 @@ Storage and cataloguing done by FU Berlin \\[3ex]
 	% \fi
 	style=\bbxpath biblatex-sp-unified,
 	citestyle=\cbxpath sp-authoryear-comp,
-	useprefix = true, %sort von, van, de where they should appear
+	useprefix=true, %sort von, van, de where they should appear
 	%refsection=chapter,
 	maxbibnames=99,
 	uniquename=false,
@@ -1387,7 +1387,6 @@ Storage and cataloguing done by FU Berlin \\[3ex]
 	url=false,
 	eprint=false,
         autolang=hyphen,
-        useprefix=true,
 	backend=\lsBiblatexBackend,
 	indexing=cite,
 	\iflsCollection\else

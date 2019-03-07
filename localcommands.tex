@@ -6,4 +6,13 @@
   \usebibmacro{index:entry}{#1}
     {\iffieldundef{usera}{}{\thefield{usera}\actualoperator}\mkbibindexname{#2}{#3}{#4}{#5}}}
 
+\renewcommand{\bottomfraction}{0.6}
+\newcommand{\data}[1]{\textit{#1}}
+\newcommand{\und}[1]{\underline{#1}}
+\newcommand{\lexeme}[1]{\textbf{\textit{#1}}}
+\newcommand{\bad}{\sqz{${}^{\ast}$}} % ungrammatical (use in example displays)
+\newcommand{\gap}{\rule{1em}{0.6pt}}
+\newcommand{\shove}{\hspace*{\fill}}
+\newcommand{\nextitem}{\smallskip\setlength{\hangindent}{4ex}\noindent}
+
 % \newcommand{\noop}[1]{}
