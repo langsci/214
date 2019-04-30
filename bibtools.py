@@ -292,7 +292,7 @@ class Record():
     """
     try:
         if len(self.errors)>0:
-            restrict =  True
+            restrict =  False
             if restrict==False or self.inkeysd.get(self.key):
                 print(self.key,'\n  '.join(['  ']+self.errors))
     except AttributeError:
@@ -371,14 +371,15 @@ class Record():
         self.fields[t] = re.sub(r' ([A-Z]) ', r" {{\1}} " ,self.fields[t]) 
   
   def checkvolumenumber(self):
-    if self.typ == "book":
+    if self.typ == "book": 
         m = bibpatterns.VOLUMEPATTERN.search(self.fields["title"])
         if m != None:
-            vol = m.group(3)
-            print(vol)
+            vol = m.group(3) 
             self.fields["volume"] = vol 
             self.fields["title"] = self.fields["title"].replace(m.group(),'')
-    if self.typ == "incollection":
+    if self.typ == "incollection": 
+        if self.fields.get("crossref"):
+          return 
         m = bibpatterns.VOLUMEPATTERN.search(self.fields["booktitle"])
         if m != None:
             vol = m.group(3)
