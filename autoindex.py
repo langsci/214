@@ -10,10 +10,11 @@ if __name__  ==  "__main__":
     #no indexing will take place in lines with the following keywords and {. section also matches subsection.
     excluders  =  ("section","caption","chapter","addplot")
     
-    lgs = open("locallanguages.txt").read().split('\n')
-    terms = open("localsubjectterms.txt").read().split('\n')[::-1]#reverse to avoid double indexing
-    print("found %i language names for autoindexing" % len(lgs))
-    print("found %i subject terms for autoindexing" % len(terms))
+    #lgs = open("locallanguages.txt").read().split('\n')
+    #terms = open("localsubjectterms.txt").read().split('\n')[::-1]#reverse to avoid double indexing
+    persons = open("localpersons.txt").read().split('\n')
+    print("found %i person names for autoindexing" % len(persons))
+    #print("found %i subject terms for autoindexing" % len(terms))
 
     files  =  glob.glob('chapters/*tex')
  
@@ -37,24 +38,16 @@ if __name__  ==  "__main__":
                     included  =  False
                     print("Found excluder keyword %s:%s"%(excluder, line))
             if included:
-                for lg in lgs: 
-                    lg  =  lg.strip()
-                    if lg  ==  '':
+                for p in persons: 
+                    p  =  p.strip()
+                    if p  ==  '':
                         continue 
-                    #substitute "lg" with "\ili{lg}"
-                    line  =  re.sub('(?<!ili{)%s(?![\w}])'%lg, '\ili{%s}'%lg, line)
-                for term in terms:
-                    term  =  term.strip() 
-                    if term  ==  '':
-                        continue
-                    #substitute "term" with "\isi{term}"
-                    line  =  re.sub('(?<!isi{|...[A-Za-z])%s(?![-_\w}])'%term, '\isi{%s}'%term, line) 
+                    line  =  re.sub('(?<!iai{)%s(?![\w}])'%p, '{\%s}'%p.replace(' ',''), line)
             newlines.append(line)
         #reassemble body
         content  =  "\n".join(newlines)  
-        #compute stats
-        numberoflanguages  =  len(re.findall(r'\\ili{',content))
-        numberofterms  =  len(re.findall(r'\\isi{',content))
+        #compute stats 
+        numberofpersons  =  len(re.findall(r'\\iai{',content))
         #make sure directory indexed/ exists
         try: 
             os.mkdir('./indexed')
@@ -69,5 +62,5 @@ if __name__  ==  "__main__":
         outfile.close()
         
         #print stats
-        print(" %s now contains %i indexed languages and %i indexed subject terms"%(f.split('/')[-1],numberoflanguages,numberofterms))
+        print(" %s now contains %i indexed persons"%(f.split('/')[-1],numberofpersons))
         print("indexed files are in the folder 'indexed/'")     

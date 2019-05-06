@@ -227,34 +227,19 @@
   \settowidth{\LSPTmp}{#1}%
   % several boxes are need to assure that words with ascending and descending letters are underlined at the same 
   % level, leading to the impression of a continuous stroke
-  \parbox[t]{\LSPTmp}{%restrict first box to the length of first argument
+  \parbox[t]{\LSPTmp}{ %restrict first box to the length of first argument
       \settowidth{\fulllength}{\parbox{\LSPTmp}{~}\parbox{#2mm}{~}} %inner box is larger than outerbox, so underlining will extend beyond length of outer box
       %             align parbox to bottom
       %              |           mbox to prevent hyphenation
-      \uline{\parbox[b]{\fulllength}{\mbox{#1}}}%
-    }%
+      \uline{\parbox[b]{\fulllength}{\mbox{#1}}}
+    }
 }
 
 \newcommand{\ule}[1]{%#1: stuff to underline, no extra length
-  \ulp{#1}{0}%
+  \ulp{#1}{0}
   }
   
-\newlength{\fullllength}
-\newcommand{\soutp}[2]{%#1: stuff to underline, #2: extra length to skip the whitespace between to components
-  \settowidth{\LSPTmp}{#1}%
-  % several boxes are need to assure that words with ascending and descending letters are underlined at the same 
-  % level, leading to the impression of a continuous stroke
-  \parbox[t]{\LSPTmp}{%restrict first box to the length of first argument
-      \settowidth{\fullllength}{\parbox{\LSPTmp}{~}\parbox{#2mm}{~}}%inner box is larger than outerbox, so underlining will extend beyond length of outer box
-      %             align parbox to bottom
-      %              |           mbox to prevent hyphenation
-      \sout{\parbox[b]{\fullllength}{\mbox{#1}}}%
-    }%
-}
-
-\newcommand{\soute}[1]{%#1: stuff to underline, no extra length
-  \soutp{#1}{0}%
-  } 
+  
 
 
 \newcommand{\longrule}{\rule{1em}{.3pt}}
@@ -361,13 +346,11 @@
 % Usage: \begin{paperappendix} \section{Title} ... \end{paperappendix
 %        Will result in "Appendix A: Title"
 %
-\newcounter{paperappendixsection}
 \newenvironment{paperappendix}{%
     \let\oldthesection\thesection%
     \let\oldsectionformat\sectionformat%
-    \setcounter{paperappendixsection}{0}%
-    \def\thesection{\Alph{paperappendixsection}}%
-    \def\sectionformat{\stepcounter{paperappendixsection}\appendixname\ \thesection:\enskip}%
+    \def\thesection{\Alph{section}}%
+    \def\sectionformat{\appendixname\ \thesection:\enskip}%
     }{%
     \let\thesection\oldthesection%
     \let\sectionformat\oldsectionformat}
@@ -432,23 +415,23 @@
 }
 
 
-\newcommand{\hitier}[3][.7]{%
-\mbox{#2}%
-\hspace*{#1mm}%
+
+\newcommand{\hitier}[2]{%
+\mbox{#1}\hspace*{.5mm}%
 \raisebox{.5mm}{%
 ͡%
 }%
-\hspace*{-#1mm}%
-\mbox{#3}%
+{\hspace*{-.5mm}\mbox{#2}%
 }
+% 
+% 
+% \newcommand{\hitiel}[2]{%
+% \mbox{#1}%
+% \raisebox{.5mm}{\hspace*{-.5mm}%
+% ͡%
+% {\hspace*{.5mm}}%
+% \mbox{#2}%
+% }
 
 
-\newcommand{\hitiel}[3][.7]{%
-\mbox{#2}%
-\hspace*{-#1mm}%
-\raisebox{.5mm}{%
-͡%
-}%
-\hspace*{#1mm}%
-\mbox{#3}%
-}
+ 
