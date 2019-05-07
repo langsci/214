@@ -38,9 +38,11 @@ The way {\Post} put it was that a string of the form ``$(\:P_1\:\supset\:P_2\:)$
 
 Modus Ponens is an extremely simple application of the idea of building strings systematically on the basis of already obtained strings (though it was crucial for {\Post}'s PhD dissertation project). But in 1920--1921 as a Procter fellow at Princeton, {\Post} started working on doing the rest of Whitehead and Russell's logic -- the reasoning that involved quantifiers -- and in connection with that he worked out a radical generalization of the notion of a rule of inference. There could be any finite number of ``premise'' lines, and both the premises and the conclusion could be of any finite length and contain any number of specified symbol strings and/or the variables over strings ($P_1, P_2$, etc.). He presented his generalized metaschema in a truly bewildering tableau. I give it here in a slightly modified form due to \citet{Davis82}, which (believe it or not) makes things slightly clearer:
 
-\large
+\large 
 \begin{displaymath}
-\begin{array}{ccccccc} g_{1,0} & P_{1,1} & g_{1,1} & P_{1,2}  & . . . & P_{1,n_1} & g_{1,n_1} \\ g_{2,0} & P_{2,1} & g_{2,1} & P_{2,2}  & . . . & P_{2,n_2} & g_{2,n_2} \\ \multicolumn{4}{c}{\vdots}             & . . . & \multicolumn{2}{c}{\vdots} \\ g_{k,0} & P_{k,1} & g_{k,1} & P_{k,2}  & . . . & P_{k,n_k} & g_{k,n_k}\\[1ex]         &         &         &\Downarrow&       &           & \\[1ex] h_1 & P_{r_1,s_1} & h_2 \; P_{r_2,s_2} & . . . & h_j & P_{r_j,s_j} & h_{j+1} \end{array} \end{displaymath}
+\begin{array}{ccccccc} g_{1,0} & P_{1,1} & g_{1,1} & P_{1,2}  & . . . & P_{1,n_1} & g_{1,n_1} \\ g_{2,0} & P_{2,1} & g_{2,1} & P_{2,2}  & . . . & P_{2,n_2} & g_{2,n_2} \\ \multicolumn{4}{c}{\vdots}             & . . . & \multicolumn{2}{c}{\vdots} \\ g_{k,0} & P_{k,1} & g_{k,1} & P_{k,2}  & . . . & P_{k,n_k} & g_{k,n_k}\\[1ex]         &         &         &\Downarrow&       &           & \\[1ex] h_1 & P_{r_1,s_1} & h_2 \; P_{r_2,s_2} & . . . & h_j & P_{r_j,s_j} & h_{j+1} \end{array} 
+\end{displaymath}
+ 
 
 \normalsize\smallskip\noindent  Each of the $g_i$ and $h_i$ stand for specific strings of symbols that would be given in the production. The down arrow ``$\Downarrow$'' means ``produce'' in {\Post}'s sense. The $r_i$ variables tell us which premise line a variable comes from, and the $s_i$ tell us which variable we are talking about (counting from the left), so requiring the $r_i$ to be between 1 and $k$ (where $k$ is the total number of premises) and requiring the $s_i$ to be between 0 and $n_{r_i}$ (where $n_{r_i}$ is the total number of variables in the relevant line) guarantees that the last line will call only $P_i$ variables that are present somewhere in the earlier lines. Thus everything in the conclusion must be either an explicitly specified string or something drawn from the material covered by the $P$ variables of the premises. Hence the conclusion can say things like ``put the content of the $x$\textsuperscript{th} variable in premise number $y$ into the conclusion at this point'', while not allowing it to say ``put in some random stuff at this point'', which would make nonsense of the idea of representing logical reasoning.
 
@@ -150,34 +152,34 @@ Such constraints can be stated more precisely as formul{\ae} of a logic; a gramm
 
 For additional concreteness, we can look very briefly at the syntax of preposition phrases (\textsc{pp}s) in English.  A typical old-fashioned \isi{generative grammar} would include a phrase structure rule like this:
 
-\begin{itemize} 
-\item[]  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad \textsc{np}
-\end{itemize} 
+\ea  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad \textsc{np}
+\z
 
 Under its standard interpretation this licenses derivational steps in which the symbol ``\textsc{pp}'' is replaced by the sequence ``\textsc{p}~~\textsc{np}'', and derivatively licenses the building of (part of) a tree diagram that looks like this:
 
+\ea
 \Tree [.PP [ [.P ] [.NP ]]]
+\z
 
 We might easily think that the rule entails that prepositions always have \textsc{np} complements. It does not. There could be (and in fact for English there will need to be) other rules in the grammar saying things like this:
 
-\begin{itemize}
- \item[]  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad \textsc{pp} 
- \item[]  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad Clause 
-\end{itemize} 
+\ea
+ \ea  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad \textsc{pp} 
+ \ex  \textsc{pp} \quad $\rightarrow$ \quad \textsc{p} \quad Clause 
+\z
+\z
 
 So some \textsc{pp}s will not have \textsc{np} right branches. And we might easily think that the rule at least says that those prepositions that do take \textsc{np} complements precede their \textsc{np} complements. But it does not entail that either. There could be another rule in the grammar saying this (where $\varepsilon$ is a symbol representing the null string):
 
-\begin{itemize} 
-\item[]  \textsc{pp} \quad $\rightarrow \quad \varepsilon$ 
-\end{itemize} 
+\ea  \textsc{pp} \quad $\rightarrow \quad \varepsilon$ 
+\z
 
 In that case there might be no prepositions appearing in the language at all. Or there could be a transformational rule like this:
 
-\begin{itemize} 
-\item[]
+\ea
 \begin{tabular}[t]{ccccccccccccccc} \textsc{x} & - & \textsc{p} & - & \textsc{np} & - & \textsc{y} \\ 1 & - & 2 & - & 3  & - & 4 & $\Rightarrow$ & 1 & - & 3 & + & 2  & - & 4  
 \end{tabular} 
-\end{itemize} 
+\z
 
 In that case prepositions would always be suffixed to their NP complements -- unless some other rule in the grammar tampered with things further. This is what I am referring to when I say that the grammar provides its definition holistically: in the same way that we are told that in the Brexit negotiations nothing is agreed until everything is agreed, with a \isi{generative grammar} we do not know anything about what any part of the grammar determines about any part of a sentence until we know what the entire grammar yields.
 
@@ -187,15 +189,13 @@ Under the view I favour, the conditions on \textsc{pp}s would be stated directly
 
 Assume a predicate logic in which we quantify over nodes with variables $x, y, z\ldots$ and have a vocabulary of monadic predicates for category labels and binary relations for grammatical functions.  We write ``$\text{B}(x)$'' to mean ``node $x$ is labelled with category label \textsc{b}'' and ``$\text{F}(x,y)$'' to mean ``the \textsc{f} of node $x$ is node $y$'' (i.e., ``node $y$ bears the grammatical function \textsc{f} to its parent node $x$''). Then the constraint saying that \textsc{pp}s have \textsc{p} heads would be expressed precisely in this way:
 
-\begin{itemize} 
-\item[] $\forall x [ \text{PP}(x) \rightarrow                \exists y [ \text{Head}(x,y) \wedge P(y) ] ]$ 
-\end{itemize} 
+\ea $\forall x [ \text{PP}(x) \rightarrow                \exists y [ \text{Head}(x,y) \wedge P(y) ] ]$ 
+\z
 
 And if we write $\text{Lexical}(x)$ to mean ``node $x$ bears a lexical category label'', ``$\text{Parent}(y,x)$'' to mean ``$x$ immediately dominates $y$'', and ``$x \prec y$'' to mean ``node $x$ is to the left of node $y$'', then the second constraint above, stating that lexical category nodes are initial in their phrases, can be stated like this:
 
-\begin{itemize} 
-\item[] $\forall x, y [ \text{Head}(x,y) \wedge \text{Lexical}(y) \rightarrow \forall z [ \text{Parent}(z,x) \rightarrow x \prec z ] ]$ 
-\end{itemize}
+\ea $\forall x, y [ \text{Head}(x,y) \wedge \text{Lexical}(y) \rightarrow \forall z [ \text{Parent}(z,x) \rightarrow x \prec z ] ]$ 
+\z
 
 Any set of trees characterized by a set of first-order logic formul{\ae} in this sort of way will be a regular set of trees (recognizable by a finite-state tree automaton) and its string yield will be a context-free stringset (these results are corollaries of theorems now found in textbooks of finite model theory like \citealt{EbbiFlum99} and \citealt{Libkin04}). By giving a finite set of first-order logic statements interpreted on tree models in this way, we explicitly characterize a set of trees and thereby a context-free set of strings.  We are in effect giving a formally explicit model for a context-free language without using a context-free \isi{generative grammar}.  I argue elsewhere \citep{Pullum13} that this yields significant advantages.
 
@@ -267,16 +267,20 @@ We do incur a commitment to structure our expressions in the English way when we
 
 It is not by any means as easy to illustrate the same sort of thing in syntax, but I think it is possible.  Consider the fact that it is usual for the direct object to follow the verb in what the \emph{Cambridge Grammar of the English Language} \citep{HuddlestonePullum2008} calls canonical clauses:
 
-\begin{itemize}  
-\item[] ~The old tree shades the house.  
-\item[] *The old tree the house shades. 
-\end{itemize} 
+\ea
+\ea[]{The old tree shades the house.}
+\ex[*]{The old tree the house shades.}
+\z
+\z
 
 That rule codifies a certain practice, applying the generalization to an indefinitely large range of expressions, not just recording properties of previous utterances.  It has \isi{normative} force in that it defines it as syntactically incorrect to put the object before the verb.  If we do not put the object before the verb, other things being equal, we are not respecting the constraints of English syntax.  But it does not follow that anyone ought to place any direct object before any verb.  A person might have reason not to respect the constraints of English syntax.  For example, someone might be imitating the poetry of the eighteenth or nineteenth centuries, where the long-extinct order with object before verb was often employed.
 
 One might well ask what point there could be to having rules that do not have to be obeyed.  This would be like having rules of the road that nobody has to follow.  The rules of the road at least have instrumental motivation relating to safety, but in the case of grammar we do not even have that.  {\Millar} (handout) in effect answers that question when he says:
 
-\begin{quote} On the view I am promoting it is our participation in practices and our ability to recognize what these require in particular situations that enables us both to make reasonable predictions about, and make sense of, what people think and do. The basic idea is simple. Because we know how people are supposed to act we can often make sense of how they do act and how they are likely to act. \end{quote} In talking about making sense {\Millar} is not necessarily to be interpreted as referring to the understanding of meaning, either semantic or pragmatic. The point has nothing inherently to do with the correct apprehension of literal meaning or perceiving the utterer's intended meaning, though it may apply to those accomplishments, and it may not even imply those abilities.  I am breaking with the usual practice among philosophers of language in wanting to talk about syntax.
+\begin{quote}
+On the view I am promoting it is our participation in practices and our ability to recognize what these require in particular situations that enables us both to make reasonable predictions about, and make sense of, what people think and do. The basic idea is simple. Because we know how people are supposed to act we can often make sense of how they do act and how they are likely to act. 
+\end{quote} 
+In talking about making sense {\Millar} is not necessarily to be interpreted as referring to the understanding of meaning, either semantic or pragmatic. The point has nothing inherently to do with the correct apprehension of literal meaning or perceiving the utterer's intended meaning, though it may apply to those accomplishments, and it may not even imply those abilities.  I am breaking with the usual practice among philosophers of language in wanting to talk about syntax.
 
 The understanding I am alluding to is simply a matter of making sense of what is going on linguistically: what sort of system the interlocutor is using, what to expect, what to infer about the intent of a speaker or the likely form of further utterances.
 
