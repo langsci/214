@@ -57,8 +57,7 @@ In \cite{Chomsky1956}, natural languages were shown to be beyond the scope of la
 or $A\rightarrow\varepsilon$ ($\varepsilon$ is the empty string)
 such that $A,B\in NT$ and $a\in T$ (i.e. regular languages).\footnote{One issue is that regular grammars cannot capture centre embeddings such as \emph{The boy the girl loved left}.} This result lead to the advent of phrase-structure or context-free grammars with production rules of the following sort: either $S\rightarrow ab$ or $S\rightarrow aSb$ (read the arrow as ``replace with'' or rewrite). These grammars can handle recursive structures and contain the regular languages as a proper subset. For many years, phrase-structure grammars were the standard way of describing linguistic phenomena. Essentially, phrase structure grammars are rewriting systems in which symbols are replaced with others such as $S\rightarrow NP, VP$ or $NP\rightarrow det, N'$. As \citet[897]{Freidin2012} notes, ``phrase structure rules are based on a top-down analysis where a sentence is divided into its major constituent parts and then these parts are further divided into constituents, and so on until we reach lexical items''. There are a number of equivalent means of representing the structure of sentences in this way. The most common is \emph{via} hierarchical diagrams, shown below. 
 
-\begin{enumerate}
-\item \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+\ea \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
 \begin{tikzpicture}[nodes={draw, circle}, ->]
  
    \node{S}
@@ -69,18 +68,18 @@ such that $A,B\in NT$ and $a\in T$ (i.e. regular languages).\footnote{One issue 
     child { node {VP} };
  
 \end{tikzpicture}
-\end{enumerate}
+\z
 
 Alternatively one can capture the same information as:
-\begin{enumerate}
-    \item[2.] $[_S[_{NP}[_{det}][_{N'}]][_{VP}]]$
-\end{enumerate} 
 
+\ea{} [\textsubscript{S}[\textsubscript{NP}[\textsubscript{det}][\textsubscript{N$'$}]][\textsubscript{VP}]]
+\z
+
+\largerpage
 This basic structure, however, proved inadequate as a means of capturing the structure of passives and certain verbal auxiliary constructions as shown originally in \cite{Postal1964}.\footnote{This picture of the trajectory of the grammatical formalization is necessarily sketchy. A fuller story would include formal results such as \cite{Shieber1985}, which showed from the cross serial dependencies of Swiss-German that natural language syntax cannot be captured by a context-free grammar.} Transformations were meant to buttress the phrase structure system in order to bridge this gap in explanation. Transformation rules operate on the output of the phrase structure rules and create a derived structure, as in (3) below for passivization.
 
-\begin{enumerate}
-    \item[3.] $NP_1$ V $NP_2$ $\rightarrow$ $NP_2$ be-en (\textsc{aux}) V $NP_1$
-\end{enumerate} 
+\ea NP\textsubscript{1} V NP\textsubscript{2} $\rightarrow$ NP\textsubscript{2} be-en (\textsc{aux}) V NP\textsubscript{1}
+\z 
 
 
 The combined expressive power of phrase structure and transformations pro\-ved very productive in characterizing myriad linguistic structures. 
@@ -90,20 +89,23 @@ Since the continued proliferation of transformations and phrase structure rules 
 
 There was also a theoretical push for more general structure from the \isi{Universal Grammar} (\textsc{ug}) postulate assumed to be the natural linguistic endowment of every language user. \textsc{ug} needed to contain more general rule schemata in order to account for the diversity of constructions across the world's languages. This structural agenda dovetailed well with the Principles and Parameters (\textsc{p\&p}) framework, which posited that the architecture of the language faculty constituted a limited number of universal principles constrained by individual parametric settings, where ``parameters'' were roughly the set of possible variations of a given structure. For instance, some languages, such as English, require a mandatory \textsc{np}/\textsc{dp} in the subject position of sentences, whereas in pro-drop languages, such as Spanish, empty categories can do the job. 
 
-\begin{enumerate}
-    \item[4.] It is raining.
-    \item[5.] Llueve.
-\end{enumerate}
+\ea
+      It is raining.
+\ex      
+    Llueve.
+\z
 
 These kinds of differences could be expressed in the language of parametric settings. The so-called Extended Projection Principle might be universal, but certain languages can contain distinct parameters with relation to it (such as fulfilling it with a null determiner). In other words, a child in the process of acquiring her first language can ``set'' the parameter based on the available linguistic environment in which she finds herself, like the flicking of a switch. Furthermore, this kind of structural picture is represented well in the X-bar schema \citep{Jackendoff1977}, which contains only three basic rules. There is (1) a specifier, (2) an adjunct, and (3) a complement rule. The specifier rule is given below (where $X'$ is a head-variable and $XP$ and $YP$ are arbitrary phrasal categories determined by that head).
-\begin{itemize}
-\item[6.] Specifier rule: $XP\rightarrow (Spec)X'$ or $XP\rightarrow X'(YP)$
-\end{itemize}
+
+\ea\label{ex:nefdt:specifierrule} 
+Specifier rule: XP$\rightarrow$ (Spec)X$'$ or XP$\rightarrow$ X$'$(YP)
+\z
 
 Or equivalently:
 
-\Tree [.XP [.specifier ] [.X' [.X ] [.complement ] ] ] 
-\smallskip
+\begin{exe}
+\exp{ex:nefdt:specifierrule} \Tree [.XP [.specifier ] [.X' [.X ] [.complement ] ] ] 
+\end{exe}
 
 A vast amount of linguistic structure can be modelled by means of this formalism. In fact, X-bar theory overgenerates structural descriptions (which need to be reined in by various constraints). But the underlying idea is that our mental competence is more likely to contain generalized rule schemata such as those above than individual phrase structure rules and countless transformations for each natural language. In a sense, X-bar merely smooths over the individual hierarchical structures of before and homes in on a more abstract structural representation for language. As Poole mentions:
 
@@ -129,18 +131,21 @@ Evolutionarily speaking, it is hard to explain the appearance of highly detailed
 
 The Merge operation represented the goal of reducing structure to these simple mechanisms. In the Standard and Extended theories, grammars followed the structures set by the proof theory of the early twentieth century (see above), which often resulted in grammars ``of roughly the order of complexity of what is to be explained'' \citep[233]{Chomsky1995}. In the Minimalist programme, this apparatus was reduced to a simple set-theoretic operation which takes two syntactic objects and creates a labelled output of their composition (the label to be determined by the features of the objects thereby replacing the projection from heads of X-bar theory).\footnote{Technically, as \citet[307]{Langendoen:2003} notes, ``Merge is not a single operation, but a family of operations. To belong to the merge family, an operation must be able to yield an infinite set of objects from a finite basis''. However, by this definition, the phrase structure rules with recursive components would be invited to Thanksgiving dinner. The structural similarities of various versions of this infinity requirement on grammars will be discussed in the next section.} The formulation is given below:
 
-\begin{enumerate}
-    \item[7.] Merge$(\alpha,\beta)$ = $\{\gamma,\{\alpha,\beta\}\}$
-\end{enumerate}
+\ea\label{ex:nefdt:merge}
+Merge$(\alpha,\beta)$ = $\{\gamma,\{\alpha,\beta\}\}$
+\z
+
 Or again, equivalently:
 
+\begin{exe}
+\exp{ex:nefdt:merge}
 \Tree [.$\gamma$ [ [.$\alpha$ ] [.$\beta$ ]]]
+\end{exe}
 
 The above is an example of external set merge (where $\gamma$ is a label projected from one of the elements). Internal merge accounts for recursive structures since it applies to its own output (as in if $\beta$ is already contained in $\alpha$). Consider the following sentence. 
 
-\begin{enumerate}
-    \item[8.] The driver will speed recklessly.
-\end{enumerate}
+\ea The driver will speed recklessly.
+\z
 
 In a bottom-up fashion, \emph{speed} and \emph{recklessly} will merge to form a \textsc{vp}, and thereafter this union will merge with the auxiliary \emph{will} to form a \textsc{tp} or Tense Phrase. Merge will independently take \emph{the} and \emph{driver} and create an \textsc{np} which will merge to form the final \textsc{tp} to deliver (8) above (the T is the label projected for the entire syntactic object). Importantly for the proposal I will present, ``[t]his last step merges two independent phrases in essentially the same way that generalized transformations operated in the earliest transformational grammars'' \citep[911]{Freidin2012}.\footnote{Of course, the practice of taking ideas or insights in disguised form from early frameworks was not uncommon. For instance, the binding theory of Government and Binding is very close (if not identical) to principles governing anaphora (like
 the Ross-Langacker constraints) that were first articulated in the
@@ -183,10 +188,13 @@ $G$ is a decidable grammar. This is called the membership problem. What determin
 
 The interesting fact for our purposes is that Merge and Minimalism represent the fruition of the gradual shift from derivational grammars to constraint-based ones. However, \cite{Chomsky2000} does not initially put much stock in this formal transition, despite the strong statement quoted above. He considers the old derivational or ``step-by-step procedure for constructing Exps'' approach and the ``direct definition […] where E is an expression of L iff …E…, where …-… is some condition on E'' approach to be ``mostly intertranslatable'' \citep[99]{Chomsky2000}.\footnote{He goes on to ``suspect'' that the adoption of the derivational approach is more than expository and might indeed be ``correct''.} Here he holds these formalism types to have few empirical differences.
 
+\largerpage[-1]
 From a mathematical point of view, the same formal languages and the structures of which they are composed are definable through both generative enumerative and model-theoretic means. Traditionally, the formal languages of the Chomsky Hierarchy were defined in terms of the kinds of grammars specified at the beginning of the previous section. However, there are other ways of demarcating the formal languages without recourse to generative grammars. For instance, they can be defined according to monadic second-order logic in the model-theoretic way. \cite{Buchi1960} showed that a set of strings forms a regular language if and only if it can be defined in the weak monadic second-order theory of the natural numbers with a successor. \cite{Thatcher1968} then showed that context-free languages ``were all and only the sets of strings forming the yield of sets of finite trees definable in the weak monadic second-order theory of multiple successors'' \citep[1117]{Rogers1998b}.
 
 The point is that the same structures can be characterized by means of either proof-theoretic or model-theoretic techniques. Thus, the move from the former to the latter should not be seen as a hazard to the \isi{structural realist} account of linguistic theory I am proffering here.\footnote{In terms of the nature of structural properties themselves, there are at least two possible ways in which to identify a structural property in the literature, one in terms of direct \textit{definability} and another \emph{via} a particular notion of \textit{invariance} across structures. See \cite{Korbmacher2017} for a formal comparison between these two options and \cite{Johnson2015} for an application of the latter to linguistic theory.} 
 
+
+\largerpage[-1]
 \section{In search of lost paradigms}
 \label{sec:nefdt:lostparadigms}
 
@@ -233,9 +241,9 @@ In this chapter, I have argued that understanding generative linguistics in \isi
 \textsc{aux} & Auxiliary category\\
 \textsc{gpsg} & Generalized Phrase Structure Grammar\\
 \textsc{hpsg} & Head-Driven Phrase Structure Grammar\\ 
-\textsc{lslt} & Logical Structure of Linguistic Theory
-\\\textsc{sbcg} & Sign-based Construction Grammar
-\\\textsc{ug} & \isi{Universal Grammar} postulate
+\textsc{lslt} & Logical Structure of Linguistic Theory\\
+\textsc{sbcg} & Sign-based Construction Grammar\\
+\textsc{ug} &  {Universal Grammar} postulate
 \end{tabularx}
 
 \section*{Acknowledgements}
