@@ -32,6 +32,26 @@ main.snd: main.bbl
 	sed -i 's/.*Embassy.*//' main.adx
 	sed -i 's/.*Commission.*//' main.adx
 	sed -i 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.ldx
+	
+	
+	sed -i 's/generative grammar/generative linguistics/' main.sdx
+	sed -i 's/generative paradigm/generative linguistics/' main.sdx
+	sed -i 's/generative theory/generative linguistics/' main.sdx
+	sed -i 's/generative tradition/generative linguistics/' main.sdx
+	sed -i 's/generativism/generative linguistics/' main.sdx
+	sed -i 's/generativist/generative linguistics/' main.sdx
+	
+	sed -i 's/Gestaltist/Gestalt psychology/' main.sdx
+	sed -i 's/Inner form/Inner linguistic form/' main.sdx
+	sed -i 's/normative/normativity/' main.sdx
+	
+	sed -i 's/linguistic structuralism/structural linguistics/' main.sdx
+	sed -i 's/structuralist/structural linguistics/' main.sdx
+	sed -i 's/structuralist period/structural linguistics/' main.sdx
+	
+	sed -i 's/structural realist/structural realism/' main.sdx
+
+	
 	python3 fixindex.py
 	mv mainmod.adx main.adx
 	makeindex -o main.and main.adx

@@ -1422,7 +1422,7 @@ Storage and cataloguing done by FU Berlin \\[3ex]
 	%refsection=chapter,
 	maxbibnames=99,
 	uniquename=false,
-	mincrossrefs=99,
+	mincrossrefs=1,
 	maxcitenames=2,
 	isbn=false,
 	doi=false,
