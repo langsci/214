@@ -42,9 +42,11 @@ main.snd: main.bbl
 	sed -i 's/generativist/generative linguistics/' main.sdx
 	
 	sed -i 's/Gestaltist/Gestalt psychology/' main.sdx
-	sed -i 's/Inner form/Inner linguistic form/' main.sdx
+	
+	sed -i 's/inner form/inner linguistic form/' main.sdx
 	sed -i 's/normative/normativity/' main.sdx
 	
+	sed -i 's/structural linguistics period/structural linguistics/' main.sdx
 	sed -i 's/linguistic structuralism/structural linguistics/' main.sdx
 	sed -i 's/structuralist/structural linguistics/' main.sdx
 	sed -i 's/structuralist period/structural linguistics/' main.sdx
